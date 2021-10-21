@@ -58,7 +58,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Contraseña (*)</label>
-                                <input type="password" class="form-control" name="password" id="password" required>
+                                <input type="password" class="form-control" name="password" id="password" minlength="8" required>
                                 <div class="password" hidden>
                                     <span class="text-danger" >este campo es obligatorio</span>
                                 </div>
@@ -165,7 +165,7 @@
                 }else{
               
                     limpiar();
-                    alertify.alert("Información:", "todos los datos ok");
+
                     
                     // cadena = "user=" + $('#usuario').val() +
                     //     "&pass=" + $('#password').val() +
@@ -206,9 +206,11 @@
             $('#username').on('blur', function(){
                   caracteresCorreoValido($(this).val(), '.username')
             });
+            $('#password').on('blur', function(){
+                  contra($(this).val(), '.password')
+            });
             function caracteresCorreoValido(email, div){
-                console.log(email);
-                //var email = $(email).val();
+
                 var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
 
                 if (caract.test(email) == false){
@@ -218,6 +220,21 @@
                     return false;
                 }else{
                     $('.username').attr('hidden');
+            //        $(div).html('');
+                    return true;
+                }
+            }
+            function contra(pass, div){
+
+                var caract = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/);
+                                        
+                if (caract.test(pass) == false){
+                    $('.password').removeAttr('hidden');
+                    $('.password').empty().append('<span class="text-danger">La contraseña debe tener: 8 caracteres, letras y numeros</span>');
+                    
+                    return false;
+                }else{
+                    $('.password').attr('hidden','hidden');
             //        $(div).html('');
                     return true;
                 }
