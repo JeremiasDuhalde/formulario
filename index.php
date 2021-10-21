@@ -96,11 +96,25 @@
                         <div class="col-md-11">
                             <div class="form-group">
                                 <label for="fecha">fecha/hora</label>
-                                <input type="datetime-local" class="form-control" id="fecha" name="fecha" required>
+                                <input type="datetime-local" class="form-control" id="fecha" name="fecha" required max="fecha">
                                 <div class="fecha" hidden>
                                     <span class="text-danger" >este campo es obligatorio</span>
                                 </div>
                             </div>
+
+                            <div class="col-md-14">
+                            <div class="form-group">
+                                <label for="fecha">CAMPO NUMERICO</label>
+                                 
+
+                                <input type="number" class="form-control" id="numero" name="camponumerico" required
+                                min="1" max="100">
+
+                                <div class="fecha" hidden>
+                                    <span class="text-danger" >Selecciona</span>
+                                </div>
+                            </div>
+
                         </div>
                         <input class="btn btn-primary btn-block" disabled type="button" value="enviar" id="registrar">
                     </div>
