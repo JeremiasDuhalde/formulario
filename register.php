@@ -13,10 +13,13 @@ $fecha_hora=$_POST['fecha'];
    $sql="INSERT INTO usuarios (nombre,apellido,username, password,provincia, fecha_hora)
             VALUES ('$nombre','$apellido','$username','$password','$provincia', '$fecha_hora')";
 
+    sleep(2);
     $result=mysqli_query($conexion,$sql);
+
     if ($result) {
         echo 0;   
     } else {
+        
         echo 1;
     }
     

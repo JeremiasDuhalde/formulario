@@ -23,7 +23,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Formulario</div>
             <div class="panel-body">
-                <form action="php/guardar.php" method="post" id="form">
+                <form id="form">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -93,33 +93,27 @@
                             </div>
                         </div>
 
-                        <div class="col-md-11">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="fecha">fecha/hora</label>
-                                <input type="datetime-local" class="form-control" id="fecha" name="fecha" required max="fecha">
+                                <input type="datetime-local" class="form-control" id="fecha" name="fecha" required  max="<?php $date = new DateTime(); $dt= $date->format('Y-m-d\TH:i:s'); echo $dt ?>">
                                 <div class="fecha" hidden>
                                     <span class="text-danger" >este campo es obligatorio</span>
                                 </div>
                             </div>
-
-                            <div class="col-md-14">
+                        </div>
+                        <div class="col-md-12">
                             <div class="form-group">
-                                <label for="fecha">CAMPO NUMERICO</label>
-                                 
-
+                                <label for="fecha">Campo Numerico</label>
                                 <input type="number" class="form-control" id="numero" name="camponumerico" required
                                 min="1" max="100">
-
-                                <div class="fecha" hidden>
-                                    <span class="text-danger" >Selecciona</span>
-                                </div>
                             </div>
-
                         </div>
+                       
                         <input class="btn btn-primary btn-block" disabled type="button" value="enviar" id="registrar">
                     </div>
                 </form>
-                </div>
+                <div class="content"></div>
             </div>
         </div>
     </div>
@@ -138,7 +132,7 @@
                 $("#provincias").empty().append('<option selected disabled>Seleccione su Provincia</option>');
                 $.each(data, function(key, value) {
 
-                       $("#provincias").append('<option value="' + value.id + '">' + value.nombre + '</option>');
+                       $("#provincias").append('<option value="' + value.nombre + '">' + value.nombre + '</option>');
 			    }); // close each()
 		    }); // close getJSON()
 
@@ -174,6 +168,7 @@
                     alertify.alert("Información:", "Las CONTRASEÑAs no coinciden");
                 }else{              
                     limpiar();
+                    $('.content').append('<img src="preload.gif" alt="loading" /><br/>Un momento, por favor...');
                    
                     cadena = "nombre=" + $('#nombre').val() +
                             "&apellido=" + $('#apellido').val() +
@@ -188,15 +183,16 @@
                         data: cadena,
                         success: function(r) {
                                 if (r == 1) {
-                                    
+                                    $('.content').fadeOut(1000).empty();
                                     alertify.error("Usuario ya existe en la BD");
                                     
                                 } else {
-                                    
+                                    $('.content').fadeOut(1000).empty();
                                     alertify.success("Usuario registrado Exitosamente");
                                 } 
                             }
-                    });                                   
+                    });
+                    //return false;                                   
                                     
                 }
                 function limpiar(){
@@ -232,7 +228,7 @@
                     
                     return false;
                 }else{
-                    $('.username').attr('hidden');
+                    $('.username').attr('hidden','hidden');
             //        $(div).html('');
                     return true;
                 }
