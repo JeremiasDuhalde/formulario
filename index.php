@@ -20,125 +20,156 @@
 <body>
 
     <div class="container">
-        <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-heading">Formulario</div>
-                    <div class="panel-body">
-                        <form action="php/guardar.php" method="post">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label> Nombre (*)</label>
-                                    <input type="text" class="form-control" name="nombre" id="nombre" required>
-                                    <div class="nombre">
-                                        <span class="text-danger" hidden></span>
-                                    </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Formulario</div>
+            <div class="panel-body">
+                <form action="php/guardar.php" method="post" id="form">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label> Nombre (*)</label>
+                                <input type="text" class="form-control" name="nombre" id="nombre" required>
+                                <div class="nombre" hidden>
+                                    <span class="text-danger ">este campo es obligatorio</span>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Apellido (*)</label>
+                                <input type="text" class="form-control" name="apellido" id="apellido" required>
+                                <div class="apellido"hidden>
+                                    <span class="text-danger" >este campo es obligatorio</span>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Apellido (*)</label>
-                                    <input type="text" class="form-control" name="apellido" id="apellido" required>
-                                    <div class="apellido">
-                                        <span class="text-danger" hidden></span>
-                                    </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Username (*)</label>
+                                <input type="email" class="form-control" name="username" id="username" data-validation="username" required>
+                                <div class="username" hidden>
+                                    <span class="text-danger">este campo es obligatorio</span>
                                 </div>
                             </div>
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Username (*)</label>
-                                    <input type="email" class="form-control" name="username" id="username" required>
-                                    <div class="username" hidden>
-                                        <span class="text-danger">este campo es obligatorio</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Contraseña (*)</label>
-                                    <input type="password" class="form-control" name="password" id="password" required>
-                                    <div class="password">
-                                        <span class="text-danger" hidden>este campo es obligatorio</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Confirmar Contraseña (*)</label>
-                                    <input type="password" class="form-control" name="repassword" id="repassword" required>
-                                    <div class="repassword">
-                                        <span class="text-danger" hidden>las contraseñas no coinciden</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Provincia (*)</label>
-                                    <select name="provincias" id="provincias" class="form-control">
-
-                                    </select>
-                                    <div class="telefono">
-                                        <span class="text-danger" hidden>este campo es obligatorio</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" id="terminos" name="terminos">
-                                    <label class="form-check-label" for="terminos">Acepto los Terminos y Condiciones</label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-11">
-                                <div class="form-group">
-                                    <label for="fecha">fecha/hora</label>
-                                    <input type="date" class="form-control" id="fecha" name="fecha" required>
-                                </div>
-                            </div>
-                            <input class="btn btn-primary btn-block" disabled type="button" value="enviar" id="registrar">
-                        </form>
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Contraseña (*)</label>
+                                <input type="password" class="form-control" name="password" id="password" required>
+                                <div class="password" hidden>
+                                    <span class="text-danger" >este campo es obligatorio</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Confirmar Contraseña (*)</label>
+                                <input type="password" class="form-control" name="repassword" id="repassword" required>
+                                <div class="repassword" hidden>
+                                    <span class="text-danger" >las contraseñas no coinciden</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Provincia (*)</label>
+                                <select name="provincias" id="provincias" class="form-control">
+
+                                </select>
+                                <div class="provincias" hidden>
+                                    <span class="text-danger" >este campo es obligatorio</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="terminos" name="terminos">
+                                <label class="form-check-label" for="terminos">Acepto los Terminos y Condiciones</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-11">
+                            <div class="form-group">
+                                <label for="fecha">fecha/hora</label>
+                                <input type="datetime-local" class="form-control" id="fecha" name="fecha" required>
+                                <div class="fecha" hidden>
+                                    <span class="text-danger" >este campo es obligatorio</span>
+                                </div>
+                            </div>
+                        </div>
+                        <input class="btn btn-primary btn-block" disabled type="button" value="enviar" id="registrar">
+                    </div>
+                </form>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- <script src="js/bootstrap.min.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-
+    
     <script>
         $(document).ready(function() {
+
+            $.getJSON('provincias.json', function(data) {
+                
+                $("#provincias").empty().append('<option selected disabled>Seleccione su Provincia</option>');
+                $.each(data, function(key, value) {
+
+                       $("#provincias").append('<option value="' + value.id + '">' + value.nombre + '</option>');
+			    }); // close each()
+		    }); // close getJSON()
+
+
             $('#registrar').click(function() {
-              
-                if ($('#username').val() == "") {
+                
+                if ($('#nombre').val() == ""){
+                    $('.nombre').removeAttr('hidden','hidden');
+                    alertify.alert("Información:", "El campo Nombre es requerido");
+                }else if ($('#apellido').val() == ""){
+                    $('.nombre').attr('hidden','hidden');
+                    $('.apellido').removeAttr('hidden','hidden');
+                    alertify.alert("Información:", "El campo Apellido es requerido");
+                }else if ($('#username').val() == "") {
                     $('.username').removeAttr('hidden','hidden');
-                    alertify.alert("Información:", "El campo USERNAME no debe estar vacio");
+                    $('.username').empty().append('<span class="text-danger">Este campo es requerido</span>');
+                    alertify.alert("Información:", "El campo USERNAME es requerido");
 
                 } else if ($('#password').val() == "") 
                 {
                     $('.username').attr('hidden','hidden');
                     $('.password').removeAttr('hidden','hidden');
-                    alertify.alert("Información:", "El campo CONTRASEÑA no debe estar vacio");
-                } else if ($('#telefono').val() == "") 
+                    alertify.alert("Información:", "El campo CONTRASEÑA es requerido");
+                } else if ($('#provincias').val() == null)                
                 {
                     $('.password').attr('hidden','hidden');
-                    $('.password').removeAttr('hidden','hidden');
-                    alertify.alert("Información:", "El campo TELEFONO no debe estar vacio");
+                    $('.provincias').removeAttr('hidden','hidden');
+                    alertify.alert("Información:", "Debe seleccionar una provincia");
                 } else if ($('#fecha').val() == "")  {
-                    $('.telefono').attr('hidden','hidden');
-                    $('.password').removeAttr('hidden','hidden');
-                    alertify.alert("Información:", "El campo FECHA no debe estar vacio");
-                } else
+                    $('.provincias').attr('hidden','hidden');
+                    $('.fecha').removeAttr('hidden','hidden');
+                    alertify.alert("Información:", "El campo FECHA es requerido");
+                } else if ($('#repassword').val() != $('#password').val()) 
                 {
+                    $('.fecha').attr('hidden','hidden');
+                    $('.repassword').removeAttr('hidden','hidden');
+                    alertify.alert("Información:", "Las CONTRASEÑAs no coinciden");
+                }else{
+              
+                    limpiar();
+                    alertify.alert("Información:", "todos los datos ok");
                     
                     // cadena = "user=" + $('#usuario').val() +
                     //     "&pass=" + $('#password').val() +
-                    //     "&email=" + $('#campeonato').val();
+                    //     "&email=" + $('#email').val();
                     
                     // $.ajax({
                         //     type: "POST",
@@ -146,14 +177,21 @@
                         //     data: cadena,
                         //     success: function(r) {
                             //         if (r == 1) {
-                                //             window.location = "academia.php";
+                                //             window.location = "";
                                 //         } else {
-                                    //             alertify.alert("Organizacion informa:", "Usuario o Contraseña incorrecto");
+                                    //             alertify.alert("Información:", "Usuario o Contraseña incorrecto");
                                     //         }
                                     //     }
                                     // });
                                     
                                     
+                }
+                function limpiar(){
+                    $('.username').attr('hidden','hidden');
+                    $('.password').attr('hidden','hidden');
+                    $('.repassword').attr('hidden','hidden');
+                    $('.fecha').attr('hidden','hidden');
+                    $('.provincias').attr('hidden','hidden');
                 }
             });
             $('#terminos').on('change', function(){
@@ -164,7 +202,26 @@
                     $('#registrar').attr('disabled','disabled');
                     
                 }
-            })
+            });
+            $('#username').on('blur', function(){
+                  caracteresCorreoValido($(this).val(), '.username')
+            });
+            function caracteresCorreoValido(email, div){
+                console.log(email);
+                //var email = $(email).val();
+                var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
+
+                if (caract.test(email) == false){
+                    $('.username').removeAttr('hidden');
+                    $('.username').empty().append('<span class="text-danger">Debe ser un email valido</span>');
+                    
+                    return false;
+                }else{
+                    $('.username').attr('hidden');
+            //        $(div).html('');
+                    return true;
+                }
+            }
         });
     </script>
 
