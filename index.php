@@ -16,41 +16,48 @@
             <div class="panel-body">
 
                 <form action="php/guardar.php" method="post">
-                    <div class="col-md-3">
+               
+		  <div class="col-md-4">
                         <div class="form-group">
                             <label> Nombre (*)</label>
                             <input type="text" class="form-control" placeholder="Nombre" name="nombre">
-                        </div>
+                        	</div></div>
+
+  		  <div class="col-md-4">
                         <div class="form-group">
                             <label>Apellido (*)</label>
                             <input type="text" class="form-control" placeholder="Apellido" name="apellido">
-                        </div>
-                   
+                     	   	</div></div>
+
+                 <div class="col-md-4">
                         <div class="form-group">
                             <label>Username (*)</label>
                             <input type="email" class="form-control" placeholder="example@example.com" name="username">
-                        </div>
+                       		 </div></div>
+				
+ 		 <div class="col-md-4">
     			 <div class="form-group">
                             <label>Contraseña (*)</label>
                             <input type="text" class="form-control" placeholder="*******" name="password">
-                        </div>
+                        	</div></div>
+		<div class="col-md-6">
                   	 <div class="form-group">
                             <label>Provincia (*)</label>
                             <input type="number" class="form-control" placeholder="..." name="telefono">
-                        </div>
-                  
+                        </div></div>
+                  	<div class="col-md-6">
                		  <div class="form-group">
                             <label>Opciones</label><br>
               
                                 <input type="checkbox" value="Terminos" name="opcion[]"/>Acepta terminos y condiciones<br>
               
-                            </div>
+                            </div></div>
                     
-
+	<div class="col-md-11">
                         <div class="form-group">
                             <label for="fecha">fecha/hora</label>
                             <input type="datetime-local"  class="form-control" id="fecha" name="fecha" value="fecha">
-                        </div>
+                        </div>   </div>
                         <input class="btn btn-primary btn-block" type="submit" value="enviar">
                     </div>
                 </form>
