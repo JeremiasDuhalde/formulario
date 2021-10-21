@@ -156,48 +156,47 @@
                     $('.username').removeAttr('hidden','hidden');
                     $('.username').empty().append('<span class="text-danger">Este campo es requerido</span>');
                     alertify.alert("Información:", "El campo USERNAME es requerido");
-
-                } else if ($('#password').val() == "") 
-                {
+                } else if ($('#password').val() == ""){
                     $('.username').attr('hidden','hidden');
                     $('.password').removeAttr('hidden','hidden');
                     alertify.alert("Información:", "El campo CONTRASEÑA es requerido");
-                } else if ($('#provincias').val() == null)                
-                {
+                } else if ($('#provincias').val() == null){
                     $('.password').attr('hidden','hidden');
                     $('.provincias').removeAttr('hidden','hidden');
                     alertify.alert("Información:", "Debe seleccionar una provincia");
-                } else if ($('#fecha').val() == "")  {
+                } else if ($('#fecha').val() == ""){
                     $('.provincias').attr('hidden','hidden');
                     $('.fecha').removeAttr('hidden','hidden');
                     alertify.alert("Información:", "El campo FECHA es requerido");
-                } else if ($('#repassword').val() != $('#password').val()) 
-                {
+                } else if ($('#repassword').val() != $('#password').val()){
                     $('.fecha').attr('hidden','hidden');
                     $('.repassword').removeAttr('hidden','hidden');
                     alertify.alert("Información:", "Las CONTRASEÑAs no coinciden");
-                }else{
-              
+                }else{              
                     limpiar();
-
+                   
+                    cadena = "nombre=" + $('#nombre').val() +
+                            "&apellido=" + $('#apellido').val() +
+                            "&email=" + $('#username').val()+
+                            "&contra=" + $('#password').val()+
+                            "&provi=" + $('#provincias').val()+
+                            "&fecha=" + $('#fecha').val();
                     
-                    // cadena = "user=" + $('#usuario').val() +
-                    //     "&pass=" + $('#password').val() +
-                    //     "&email=" + $('#email').val();
-                    
-                    // $.ajax({
-                        //     type: "POST",
-                        //     url: "php/login.php",
-                        //     data: cadena,
-                        //     success: function(r) {
-                            //         if (r == 1) {
-                                //             window.location = "";
-                                //         } else {
-                                    //             alertify.alert("Información:", "Usuario o Contraseña incorrecto");
-                                    //         }
-                                    //     }
-                                    // });
+                    $.ajax({
+                        type: "POST",
+                        url: "register.php",
+                        data: cadena,
+                        success: function(r) {
+                                if (r == 1) {
                                     
+                                    alertify.error("Usuario ya existe en la BD");
+                                    
+                                } else {
+                                    
+                                    alertify.success("Usuario registrado Exitosamente");
+                                } 
+                            }
+                    });                                   
                                     
                 }
                 function limpiar(){
